@@ -13,6 +13,7 @@ const client = new karar.Client();
 const db = require("quick.db")
 client.login(process.env.token)
 const Discord = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
 //Config 
 const owner = "you id here" // ايديك / you id
@@ -162,7 +163,7 @@ if (!message.member.hasPermission("ADMINISTRATOR")) {
   message.channel.send(">>> **Don't have permission \`ADMINISTRATOR\`**")
 return
 }  
-const arm = new MessageEmbed()
+const arm = new Discord.MessageEmbed()
   .setTitle("**تغير البادئة**") 
     .setColor("RANDOM")
   .setThumbnail(message.author.displayAvatarURL({
@@ -173,7 +174,7 @@ const arm = new MessageEmbed()
 البادئه الجديده : __${cmd[1]}__ **`)
   
 
-const enm = new MessageEmbed()
+const enm = new Discord.MessageEmbed()
   .setTitle("**change the prefix**") 
     .setColor("RANDOM")
   .setThumbnail(message.author.displayAvatarURL({
