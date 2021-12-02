@@ -188,7 +188,7 @@ __${cmd[1]}__ **`)
  
     
     
-    if(!args) {
+    if(!cmd) {
       const lang = db.fetch(message.guild.id)
   if(lang === "ar") {
     message.channel.send("**اكتب البادئة الجديده**")
