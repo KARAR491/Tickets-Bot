@@ -16,7 +16,8 @@ const Discord = require("discord.js")
 
 //Config 
 const owner = "you id here" // ايديك / you id
-const prefix = "$" // برفكس / prefix 
+const PREFIX = "$" // برفكس / prefix 
+const prefix = PREFIX
 client.on("ready", () => {
   console.log(client.guilds.cache.size)
 })
@@ -39,6 +40,10 @@ Bot Channels : ${client.channels.cache.size}
 })
 
 //cmds
+client.on("message", async (message) => {
+let prefix = await db.get(`prefix_${message.guild.id}`);
+  if (!prefix) prefix = PREFIX;
+})
 client.on("message", async message => {
   if(message.content.startsWith(prefix + "help")) {
 const embed = new Discord.MessageEmbed()
@@ -75,7 +80,7 @@ const lang = db.fetch(message.guild.id)  
   }else if(lang === "en") message.channel.send(`**Write New Name Bot**`);     
  return
 }
-client.user.setName(cmd)
+client.user.seUsername(cmd)
     const lang = db.fetch(message.guild.id)  
       if(lang === "en") {     message.channel.send(`**Done 
 New UserName : ${cmd}**`) 
